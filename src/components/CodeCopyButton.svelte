@@ -1,0 +1,51 @@
+<script lang="ts">
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    let copyButtonLabel = "copy";
+    let codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (let codeBlock of codeBlocks) {
+      let wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      let copyButton = document.createElement("button");
+      copyButton.className =
+        "opacity-50 sm:opacity-20 group-hover:opacity-100 transition-opacity duration-500 absolute top-2 right-2 text-xs bg-base-200 dark:bg-base-700 border border-base-400 dark:border-base-600 py-1 px-2 rounded-xl dark:hover:bg-base-600 hover:bg-base-300";
+      copyButton.innerHTML = copyButtonLabel;
+
+      // add class group to codeBlock
+      codeBlock.classList.add("group");
+
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      codeBlock.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block: HTMLElement, button: HTMLElement) {
+      let code = block.querySelector("code");
+      if (!code) return;
+
+      let text = code.innerText;
+
+      await navigator.clipboard.writeText(text);
+
+      let oldLabel = button.innerText;
+      let oldClassName = button.className;
+      button.className =
+        "opacity-100 transition-opacity duration-500 absolute top-2 right-2 text-xs bg-green-200 dark:bg-green-900 border border-green-300 dark:border-green-700 text-green-800 dark:text-green-300 py-1 px-2 rounded-xl";
+
+      button.innerText = "copied!";
+
+      setTimeout(() => {
+        button.innerText = oldLabel;
+        button.className = oldClassName;
+      }, 2000);
+    }
+  });
+</script>

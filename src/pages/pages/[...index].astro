@@ -1,0 +1,58 @@
+---
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  POSTS_PER_PAGE,
+  ACCENT_COLOR,
+  BASE_COLOR,
+} from "../../consts";
+
+import { getCollection } from "astro:content";
+
+import Header from "$components/Header.astro";
+import Footer from "$components/Footer.astro";
+import BaseLayout from "$layouts/BaseLayout.astro";
+import BlogEntry from "$components/BlogEntry.astro";
+import Pagination from "$components/Pagination.astro";
+import { colorBaseClasses, colorAccentClasses } from "src/colors";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return Array.from({ length: Math.ceil(posts.length / POSTS_PER_PAGE) }).map(
+    (_, index) => ({
+      params: { index: (index + 1).toString() },
+      props: { index: index + 1 },
+    })
+  );
+}
+
+const { index } = Astro.props;
+
+const posts = (await getCollection("blog"))
+  .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .splice(POSTS_PER_PAGE * (index - 1), POSTS_PER_PAGE);
+
+const total = Math.ceil((await getCollection("blog")).length / POSTS_PER_PAGE);
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <Header />
+
+  <main class="mx-auto max-w-2xl lg:max-w-3xl py-16">
+    <div
+      class={"prose dark:prose-invert text-base-900 dark:text-base-50 px-4 " +
+        colorBaseClasses[BASE_COLOR] +
+        " " +
+        colorAccentClasses[ACCENT_COLOR]}
+    >
+      <h1>All blog posts</h1>
+    </div>
+    <div class="my-14 space-y-14 max-w-3xl px-4">
+      {posts.map((post: any) => <BlogEntry {...post.data} slug={post.slug} />)}
+    </div>
+
+    {total > 1 ? <Pagination current={index} total={total} /> : null}
+  </main>
+
+  <Footer />
+</BaseLayout>

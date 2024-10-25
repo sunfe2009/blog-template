@@ -1,0 +1,40 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION, POSTS_PER_PAGE } from "../consts";
+
+import { getCollection } from "astro:content";
+
+import Footer from "$components/Footer.astro";
+import Header from "$components/Header.astro";
+import BaseLayout from "$layouts/BaseLayout.astro";
+import BlogPost from "$layouts/BlogPost.astro";
+import BlogEntry from "$components/BlogEntry.astro";
+
+import { Content } from "$content/info/description.md";
+import Pagination from "$components/Pagination.astro";
+
+const posts = (await getCollection("blog"))
+  .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .splice(0, POSTS_PER_PAGE);
+
+const total = Math.ceil((await getCollection("blog")).length / POSTS_PER_PAGE);
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <Header />
+  <main class="max-w-2xl lg:max-w-3xl mx-auto mt-16 px-4">
+    <BlogPost>
+      <Content />
+      <div class="my-14 space-y-14 max-w-3xl not-prose">
+        {
+          posts.map((post: any) => (
+            <BlogEntry {...post.data} slug={post.slug} />
+          ))
+        }
+      </div>
+    </BlogPost>
+
+    {total > 1 ? <Pagination current={1} total={total} /> : null}
+  </main>
+
+  <Footer />
+</BaseLayout>
