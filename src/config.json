@@ -1,6 +1,7 @@
 {
-    "SITE": "https://flo-bit.github.io",
-    "BASE": "/blog-template",
+    "MANUAL_SITE_BASE": false,
+    "SITE": "https://test.com",
+    "BASE": "",
     "SITE_TITLE": "Blog template",
     "SITE_DESCRIPTION": "Welcome to my website!",
     "SITE_FAVICON": "🙃",
