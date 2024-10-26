@@ -12,5 +12,6 @@
       "$assets/*": ["src/assets/*"],
       "$examples/*": ["src/examples/*"]
     }
-  }
+  },
+  "exclude": ["public/pagefind", "dist"]
 }

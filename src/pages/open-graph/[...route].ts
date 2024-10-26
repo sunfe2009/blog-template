@@ -1,8 +1,8 @@
 import { OGImageRoute } from "astro-og-canvas";
-import { getCollection } from "astro:content";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../config.json";
+import { getBlogPosts } from "src/utils";
 
-const posts = await getCollection("blog");
+const posts = await getBlogPosts();
 
 // turn posts into an object with slugs as keys, and title and description as values
 // { slug: { title, description } }
@@ -25,7 +25,6 @@ const pages = posts.reduce(
   >,
 );
 
-console.log(pages);
 export const { getStaticPaths, GET } = OGImageRoute({
   // Tell us the name of your dynamic route segment.
   // In this case it’s `route`, because the file is named `[...route].ts`.

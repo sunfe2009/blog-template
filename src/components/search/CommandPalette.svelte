@@ -35,8 +35,6 @@
     for (let i = 0; i < search.results.length && i < 5; i++) {
       let result = await search.results[i].data();
 
-      console.log(result);
-
       let excerpt = result.excerpt;
       // replace <mark> tags with <span class="bg-pink-600/10">
       excerpt = excerpt.replaceAll(
@@ -145,7 +143,7 @@
                   $showSearch = false;
                 }
               }
-              console.log(event, event.key);
+
               // on arrow down
               if (event.key == "ArrowDown") {
                 currentSelection++;

@@ -60,3 +60,15 @@ For editing the blog you can either edit the code directly or use the preconfigu
 
 - `description.md` is used for the homepage description
 - `about.md` is used for the about page
+
+## Notes
+
+Search currently only works in production mode (i.e. when running `npm run build`) not in dev mode (`npm run dev`).
+
+## Credits
+
+Adopted from the default astro blog template when running `npm create astro@latest`.
+
+## License
+
+MIT.

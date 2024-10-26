@@ -4,9 +4,7 @@
 
 <button
   onclick={() => {
-    console.log("clicked");
     $showSearch = true;
-    console.log($showSearch);
   }}
 >
   <div class="sr-only">search</div>
