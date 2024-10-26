@@ -7,9 +7,9 @@ heroImage: "/src/assets/blog-placeholder-1.jpg"
 tags: ["setup"]
 ---
 
-Change the values in `src/config.json` to configure the blog to your liking, see below for more information.
+Editing the code: Change the values in `src/config.json` to configure the blog to your liking, see below for more information.
 
-most importantly, set `SITE` and `BASE` to your corresponding values.
+Editing using [pagecms](https://next.pagescms.org): After having logged in and opened your repository, click on "Website Configuration" and fill out the form, changing the values to your liking. Click "Save" to apply the changes (takes about 1 minute to deploy).
 
 ## SITE_TITLE
 

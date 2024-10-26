@@ -1,6 +1,6 @@
 ---
-title: "Adding content"
-description: "Learn how to add content to your blog"
+title: "Adding blog posts directly"
+description: "Learn how to add content to your blog directly in the code (without using pagescms)"
 pubDate: "Oct 24 2024"
 published: true
 heroImage: "/src/assets/blog-placeholder-4.jpg"

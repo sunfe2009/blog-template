@@ -7,6 +7,8 @@ heroImage: "/src/assets/blog-placeholder-3.jpg"
 tags: ["setup"]
 ---
 
+> You only need this when you edit the markdown files directly. When you use [pagecms](https://next.pagescms.org) you can configure the post directly in the browser and don't need to worry about this.
+
 here are all options you can use in the frontmatter of a blog post:
 
 ### title: string (required)

@@ -1,13 +1,13 @@
 ---
 title: "Minimal setup with github pages"
-description: "Learn how to use this blog template with github actions"
+description: "Learn how to use this blog template with github pages (for free, with no coding required)"
 pubDate: "Oct 26 2024"
 published: true
 heroImage: "/src/assets/blog-placeholder-2.jpg"
 tags: ["setup"]
 ---
 
-1. Fork [the repository of this blog](https://github.com/flo-bit/blog-template)
+1. Fork [the repository of this blog](https://github.com/flo-bit/blog-template) (note: this repository per default uses github actions which are only free for public repositories)
 
 2. In your repository settings, set up github pages to deploy using github actions (*SETTINGS* -> *PAGES* -> *SOURCE*: **Github Actions**)
 

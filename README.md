@@ -18,6 +18,7 @@ Features:
 - ✅ Tags for posts
 - ✅ Super easy to deploy as a static site
 - ✅ Includes some prebuilt components for you to use
+- ✅ Easy to edit using [pagecms](https://pagescms.org) or by editing the markdown directly
 
 ## tutorials
 
@@ -31,7 +32,7 @@ the demo blog doubles as a tutorial on how to use this template:
 
 ## Minimal setup with github pages
 
-1. Fork this repository.
+1. Fork this repository by clicking on "Use template" (note: this repository per default uses github actions which are only free for public repositories).
 
 2. In your repository settings, set up github pages to deploy using github actions (*SETTINGS* -> *PAGES* -> *SOURCE*: **Github Actions**)
 
