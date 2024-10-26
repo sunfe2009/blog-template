@@ -9,7 +9,7 @@ import BaseLayout from "$layouts/BaseLayout.astro";
 import BlogPost from "$layouts/BlogPost.astro";
 import BlogEntry from "$components/BlogEntry.astro";
 
-import { Content } from "$content/info/description.mdx";
+import { Content } from "$content/info/description.md";
 import Pagination from "$components/Pagination.astro";
 
 const posts = (await getCollection("blog"))

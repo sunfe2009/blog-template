@@ -19,10 +19,6 @@ tags: ["setup"]
 
 5. In your repository settings, set up github pages to deploy using github actions
 
-import SuccessAlert from '$components/alerts/SuccessAlert.svelte';
-
-<SuccessAlert title="Setup should be done">
-Enjoy your new blog at: `https://<your-github-username>.github.io/<your-repo-name>`
-</SuccessAlert>
+6. Enjoy your new blog at: `https://<your-github-username>.github.io/<your-repo-name>`
 
 For more information on how you can add content see the post about [adding content](../adding-content) or read about [supported markdown features here](../markdown-style-guide).

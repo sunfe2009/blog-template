@@ -50,20 +50,11 @@ updatedDate: "Oct 24 2024"
 
 ### hero image (optional)
 
-- path to the hero image, *has to be* in /src/assets folder and *has to start* with `/src/assets/`
+- path to the hero image, image *has to be* in /src/assets folder and *has to start* with `/src/assets/` or `../../assets/`
 
 ```yml
-heroImage: "/src/assets/blog-placeholder-4.jpg" 
+heroImage: "../../assets/blog-placeholder-4.jpg" 
 ```
-
-import WarningAlert from '$components/alerts/WarningAlert.svelte';
-
-<WarningAlert title="Hero Image" class="mt-6">
-  Always add the `heroImage` in the above format starting with `/src/assets` followed by the image name.
-    <br/>
-  This image also **has to be** in the `src/assets/` directory.
-</WarningAlert>
-
 
 ### tags (optional)
 

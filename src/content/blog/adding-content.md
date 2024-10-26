@@ -13,19 +13,13 @@ Add content to your blog by creating new markdown files in the `src/content/blog
 title: "My first blog post"
 description: "This is my first blog post"
 pubDate: "Oct 24 2024"
-heroImage: "/src/assets/blog-placeholder-4.jpg"
+heroImage: "../../assets/blog-placeholder-4.jpg"
 tags: ["first", "blog"]
 ---
 ```
 
 Check out all the [options you can use in the frontmatter of a blog post](../post-options).
 
-After that just write your content in markdown format (you don't need to write the title again, it will be automatically added to the page). You can also use MDX to include components in your markdown files. For more information on how to use MDX, see the post about [using MDX](../using-mdx).
+After that just write your content in markdown format (you don't need to write the title again, it will be automatically added to the page). 
 
-import WarningAlert from '$components/alerts/WarningAlert.svelte';
-
-<WarningAlert title="Hero Image" class="mt-6">
-  Always add the `heroImage` in the above format starting with `/src/assets` followed by the image name.
-    <br/>
-  This image also **has to be** in the `src/assets/` directory.
-</WarningAlert>
+You can also use MDX to include components in your markdown files. For more information on how to use MDX, see the post about [using MDX](../using-mdx).

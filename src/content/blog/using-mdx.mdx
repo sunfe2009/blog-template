@@ -7,6 +7,12 @@ hideHero: true
 tags: ["setup", "markdown"]
 ---
 
+import WarningAlert from '$components/alerts/WarningAlert.svelte';
+
+<WarningAlert title="Doesn't work with Pages CMS" class="mt-6">
+  MDX is currently not supported by Pages CMS. You can still use it, but you will have to manually add the content to the markdown files.
+</WarningAlert>
+
 This theme comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in your `astro.config.mjs` config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.
 
 ## Why MDX?
@@ -41,8 +47,6 @@ import InfoAlert from '$components/alerts/InfoAlert.svelte';
 <InfoAlert title="Info" class="mt-6">
   This is an info alert
 </InfoAlert>
-
-import WarningAlert from '$components/alerts/WarningAlert.svelte';
 
 <WarningAlert title="Warning" class="mt-6">
   This is a warning alert

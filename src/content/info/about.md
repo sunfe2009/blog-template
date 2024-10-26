@@ -2,23 +2,7 @@
 
 Here you can write something about yourself, who are you, why are you writing this blog, what are you going to write about, etc.
 
-You can also add some images, links, or even components like this:
-
-### Component
-
-```tsx
-import SuccessAlert from '$components/alerts/SuccessAlert.svelte';
-
-<SuccessAlert title="Hello world!">
-    This is a success alert
-</SuccessAlert>
-```
-
-import SuccessAlert from '$components/alerts/SuccessAlert.svelte';
-
-<SuccessAlert title="Hello world!">
-    This is a success alert
-</SuccessAlert>
+You can also add some images or links like this:
 
 ### Image
 
