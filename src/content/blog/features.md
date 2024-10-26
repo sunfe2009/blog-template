@@ -11,7 +11,7 @@ tags: []
 - ✅ SEO-friendly with canonical URLs and OpenGraph data (automatically generated)
 - ✅ Sitemap support
 - ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- ✅ Markdown support
 - ✅ Pagination
 - ✅ Code syntax highlighting (+ copy button)
 - ✅ Dark and light mode with toggle button or auto-detection

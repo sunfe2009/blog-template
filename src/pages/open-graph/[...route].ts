@@ -1,6 +1,6 @@
 import { OGImageRoute } from "astro-og-canvas";
 import { getCollection } from "astro:content";
-import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../config.json";
 
 const posts = await getCollection("blog");
 

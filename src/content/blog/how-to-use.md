@@ -8,14 +8,14 @@ tags: ["setup"]
 
 1. Fork [the repository of this blog](https://github.com/flo-bit/blog-template)
 
-2. Set up your blog info in `src/consts.ts` (most importantly set `SITE` and `BASE` to your corresponding values, see [`src/consts.ts`](../const-ts) for more info)
+2. Set up your blog info in `src/config.json` (most importantly set `SITE` and `BASE` to your corresponding values, see [`src/consts.ts`](../const-ts) for more info)
 
 3. Add your blog posts in `src/content/blog/` (see [adding content](../adding-content) for more info)
 
 4. Add your info in `src/content/info/`:
 
-- `description.mdx` is used for the homepage description
-- `about.mdx` is used for the about page
+- `description.md` is used for the homepage description
+- `about.md` is used for the about page
 
 5. In your repository settings, set up github pages to deploy using github actions
 

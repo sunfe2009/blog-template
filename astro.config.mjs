@@ -7,7 +7,8 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
 import pagefind from "vite-plugin-pagefind";
-import { BASE, SITE } from "./src/consts";
+
+import { BASE, SITE } from "./src/config.json"
 
 // https://astro.build/config
 export default defineConfig({

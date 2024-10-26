@@ -1,6 +1,4 @@
-import type { AccentColors, BaseColors } from "./types";
-
-export const colorBaseClasses: Record<BaseColors, string> = {
+export const colorBaseClasses: Record<string, string> = {
   slate: "prose-slate",
   stone: "prose-stone",
   gray: "prose-gray",
@@ -8,7 +6,7 @@ export const colorBaseClasses: Record<BaseColors, string> = {
   zinc: "prose-zinc",
 };
 
-export const colorAccentClasses: Record<AccentColors, string> = {
+export const colorAccentClasses: Record<string, string> = {
   red: "prose-red",
   orange: "prose-orange",
   amber: "prose-amber",

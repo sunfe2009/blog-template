@@ -10,7 +10,7 @@ Features:
 - ✅ SEO-friendly with canonical URLs and OpenGraph data (automatically generated)
 - ✅ Sitemap support
 - ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- ✅ Markdown support
 - ✅ Pagination
 - ✅ Syntax highlighting (+ copy button)
 - ✅ Dark and light mode with toggle button or auto-detect
@@ -29,13 +29,11 @@ the demo blog doubles as a tutorial on how to use this template:
 
 - [supported markdown features](https://flo-bit.dev/blog-template/posts/markdown-style-guide)
 
-- [how to use mdx](https://flo-bit.dev/blog-template/posts/using-mdx)
-
 ## Minimal setup with github pages
 
 1. Fork this repository
 
-2. Set up your blog info in `src/consts.ts` (most importantly set 'SITE' and 'BASE' to your corresponding values, see `src/consts.ts` for more info)
+2. Set up your blog info in `src/config.json` (most importantly set 'SITE' and 'BASE' to your corresponding values, see [configuring your site](https://flo-bit.dev/blog-template/posts/configuring-the-blog))
 
 3. Add your blog posts in `src/content/blog/`
 
