@@ -2,10 +2,10 @@ import type { AccentColors, BaseColors } from "./types";
 
 // when deploying to github pages, set this to your site url
 // (e.g. "https://<your-github-username>.github.io")
-export const SITE = "https://flo-bit.github.io"
+export const SITE = "https://flo-bit.github.io";
 
 // when deploying to github pages, set this to your repo name
-// except if you're either using a custom domain or 
+// except if you're either using a custom domain or
 // your repo name is <your-github-username>.github.io (in which case, set it to "")
 export const BASE = "/blog-template";
 

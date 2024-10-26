@@ -2,6 +2,7 @@
 title: "Minimal setup with github pages"
 description: "Learn how to use this blog template with github actions"
 pubDate: "Oct 26 2024"
+published: true
 heroImage: "/src/assets/blog-placeholder-2.jpg"
 tags: ["setup"]
 ---

@@ -19,4 +19,3 @@ here is a [post about how to use this template](posts/how-to-use)
 ```
 
 here is a [post about how to use this template](posts/how-to-use)
-

@@ -1,16 +1,14 @@
 {
-    "MANUAL_SITE_BASE": false,
-    "SITE": "https://test.com",
-    "BASE": "",
-    "SITE_TITLE": "Blog template",
-    "SITE_DESCRIPTION": "Welcome to my website!",
-    "SITE_FAVICON": "🙃",
-    "NAME": "flo-bit",
-    "POSTS_PER_PAGE": 5,
-    "MANUAL_DARK_MODE": true,
-    "SEARCH_ENABLED": true,
-    "BASE_COLOR": "stone",
-    "ACCENT_COLOR": "amber",
+  "SITE_TITLE": "Blog template",
+  "SITE_DESCRIPTION": "Welcome to my website!",
+  "SITE_FAVICON": "🙃",
+  "NAME": "flo-bit",
+  "POSTS_PER_PAGE": 5,
+  "MANUAL_DARK_MODE": true,
+  "SEARCH_ENABLED": true,
+  "BASE_COLOR": "stone",
+  "ACCENT_COLOR": "amber",
+  "SOCIAL_LINKS": {
     "FACEBOOK_URL": "",
     "TWITTER_URL": "https://x.com/flobit_dev",
     "GITHUB_URL": "https://github.com/flo-bit",
@@ -19,4 +17,8 @@
     "YOUTUBE_URL": "",
     "SUBSTACK_URL": "https://flo-bit.substack.com",
     "EMAIL": "flo.bit.dev@gmail.com"
+  },
+  "MANUAL_SITE_BASE": false,
+  "SITE": "https://flo-bit.github.io",
+  "BASE": "/blog"
 }

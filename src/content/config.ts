@@ -12,6 +12,9 @@ const blog = defineCollection({
 
     // date published
     pubDate: z.coerce.date(),
+
+    published: z.boolean(),
+
     // short description will be used for og image (fallback to description)
     shortDescription: z.string().optional(),
 

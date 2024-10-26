@@ -1,14 +1,7 @@
 ---
 import {
-  EMAIL,
-  FACEBOOK_URL,
-  GITHUB_URL,
-  INSTAGRAM_URL,
-  LINKEDIN_URL,
   NAME,
-  SUBSTACK_URL,
-  TWITTER_URL,
-  YOUTUBE_URL,
+  SOCIAL_LINKS
 } from "../config.json";
 
 const today = new Date();
@@ -20,10 +13,10 @@ const today = new Date();
   >
     <div class="flex justify-center items-center gap-x-6 md:order-2">
       {
-        FACEBOOK_URL ? (
+        SOCIAL_LINKS.FACEBOOK_URL ? (
           <a
             target="_blank"
-            href={FACEBOOK_URL}
+            href={SOCIAL_LINKS.FACEBOOK_URL}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
             <span class="sr-only">Facebook</span>
@@ -43,10 +36,10 @@ const today = new Date();
         ) : null
       }
       {
-        INSTAGRAM_URL ? (
+        SOCIAL_LINKS.INSTAGRAM_URL ? (
           <a
             target="_blank"
-            href={INSTAGRAM_URL}
+            href={SOCIAL_LINKS.INSTAGRAM_URL}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
             <span class="sr-only">Instagram</span>
@@ -66,10 +59,10 @@ const today = new Date();
         ) : null
       }
       {
-        TWITTER_URL ? (
+        SOCIAL_LINKS.TWITTER_URL ? (
           <a
             target="_blank"
-            href={TWITTER_URL}
+            href={SOCIAL_LINKS.TWITTER_URL}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
             <span class="sr-only">X</span>
@@ -84,10 +77,10 @@ const today = new Date();
           </a>
         ) : null
       }{
-        LINKEDIN_URL ? (
+        SOCIAL_LINKS.LINKEDIN_URL ? (
           <a
             target="_blank"
-            href={LINKEDIN_URL}
+            href={SOCIAL_LINKS.LINKEDIN_URL}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
             <span class="sr-only">LinkedIn</span>
@@ -103,10 +96,10 @@ const today = new Date();
         ) : null
       }
       {
-        SUBSTACK_URL ? (
+        SOCIAL_LINKS.SUBSTACK_URL ? (
           <a
             target="_blank"
-            href={SUBSTACK_URL}
+            href={SOCIAL_LINKS.SUBSTACK_URL}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
             <span class="sr-only">Substack</span>
@@ -127,10 +120,10 @@ const today = new Date();
         ) : null
       }
       {
-        GITHUB_URL ? (
+        SOCIAL_LINKS.GITHUB_URL ? (
           <a
             target="_blank"
-            href={GITHUB_URL}
+            href={SOCIAL_LINKS.GITHUB_URL}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
             <span class="sr-only">GitHub</span>
@@ -151,10 +144,10 @@ const today = new Date();
         ) : null
       }
       {
-        YOUTUBE_URL ? (
+        SOCIAL_LINKS.YOUTUBE_URL ? (
           <a
             target="_blank"
-            href={YOUTUBE_URL}
+            href={SOCIAL_LINKS.YOUTUBE_URL}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
             <span class="sr-only">YouTube</span>
@@ -174,13 +167,13 @@ const today = new Date();
         ) : null
       }
       {
-        EMAIL ? (
+        SOCIAL_LINKS.EMAIL ? (
           <a
             target="_blank"
-            href={"mailto:" + EMAIL}
+            href={"mailto:" + SOCIAL_LINKS.EMAIL}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
-            <span class="sr-only">{EMAIL}</span>
+            <span class="sr-only">{SOCIAL_LINKS.EMAIL}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

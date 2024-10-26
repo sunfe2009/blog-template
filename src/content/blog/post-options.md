@@ -2,6 +2,7 @@
 title: "Configuring a post"
 description: "Learn how to configure a post"
 pubDate: "Oct 23 2024"
+published: true
 heroImage: "/src/assets/blog-placeholder-3.jpg"
 tags: ["setup"]
 ---
@@ -29,7 +30,7 @@ description: "This is my first blog post"
 - date when the post was published, will be shown in the blog post list, posts will be sorted by this date
 
 ```yml
-pubDate: "Oct 24 2024" 
+pubDate: "Oct 24 2024"
 ```
 
 ### short description (optional)
@@ -50,10 +51,10 @@ updatedDate: "Oct 24 2024"
 
 ### hero image (optional)
 
-- path to the hero image, image *has to be* in /src/assets folder and *has to start* with `/src/assets/` or `../../assets/`
+- path to the hero image, image _has to be_ in /src/assets folder and _has to start_ with `/src/assets/` or `../../assets/`
 
 ```yml
-heroImage: "../../assets/blog-placeholder-4.jpg" 
+heroImage: "../../assets/blog-placeholder-4.jpg"
 ```
 
 ### tags (optional)
@@ -75,7 +76,7 @@ hideHero: false
 ### use hero as open-graph image (optional)
 
 - whether to use the hero image as the open-graph image (instead of the default `/src/assets/background.png`), default: false
-    
+
 ```yml
 useHeroAsOGImage: false
 ```
@@ -83,7 +84,7 @@ useHeroAsOGImage: false
 ### no text in open-graph image (optional)
 
 - wether to hide title and short description in the open-graph image, default: false
-    
+
 ```yml
 noTextInOGImage: false
 ```

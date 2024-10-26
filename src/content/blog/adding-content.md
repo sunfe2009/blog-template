@@ -2,6 +2,7 @@
 title: "Adding content"
 description: "Learn how to add content to your blog"
 pubDate: "Oct 24 2024"
+published: true
 heroImage: "/src/assets/blog-placeholder-4.jpg"
 tags: ["setup", "markdown"]
 ---
@@ -20,4 +21,4 @@ tags: ["first", "blog"]
 
 Check out all the [options you can use in the frontmatter of a blog post](../post-options).
 
-After that just write your content in markdown format (you don't need to write the title again, it will be automatically added to the page). 
+After that just write your content in markdown format (you don't need to write the title again, it will be automatically added to the page).

@@ -15,9 +15,10 @@ import BaseLayout from "$layouts/BaseLayout.astro";
 import BlogEntry from "$components/BlogEntry.astro";
 import Pagination from "$components/Pagination.astro";
 import { colorBaseClasses, colorAccentClasses } from "src/colors";
+import { getBlogPosts } from "src/utils";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getBlogPosts();
   const tags = new Map<string, number>();
 
   posts.forEach((post: any) => {
@@ -61,17 +62,13 @@ export async function getStaticPaths() {
 
 const { tag, index } = Astro.props;
 
-console.log(tag);
-
-const posts = (await getCollection("blog"))
+const posts = (await getBlogPosts())
   .filter((post: any) => post.data.tags?.includes(tag))
-  .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .splice((index - 1) * POSTS_PER_PAGE, POSTS_PER_PAGE);
 
 const total = Math.ceil(
-  (await getCollection("blog")).filter((post: any) =>
-    post.data.tags?.includes(tag)
-  ).length / POSTS_PER_PAGE
+  (await getBlogPosts()).filter((post: any) => post.data.tags?.includes(tag))
+    .length / POSTS_PER_PAGE
 );
 ---
 

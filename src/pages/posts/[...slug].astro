@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry } from "astro:content";
 import BaseLayout from "$layouts/BaseLayout.astro";
 import BlogPost from "$layouts/BlogPost.astro";
 import Header from "$components/Header.astro";
@@ -7,9 +7,10 @@ import Footer from "$components/Footer.astro";
 import { Image } from "astro:assets";
 import FormattedDate from "$components/FormattedDate.astro";
 import { BASE } from "../../config.json";
+import { getBlogPosts } from "src/utils";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getBlogPosts();
   return posts.map((post: any) => ({
     params: { slug: post.slug },
     props: post,

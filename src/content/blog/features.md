@@ -3,6 +3,7 @@ title: "Features"
 shortDescription: "Everything this blog template offers"
 description: "Everything this blog template offers"
 pubDate: "Jun 01 2024"
+published: true
 heroImage: "/src/assets/blog-placeholder-1.jpg"
 tags: []
 ---

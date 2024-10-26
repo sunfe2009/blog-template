@@ -2,6 +2,7 @@
 title: "Configuring the blog"
 description: "Learn how to configure the blog template"
 pubDate: "Oct 25 2024"
+published: true
 heroImage: "/src/assets/blog-placeholder-1.jpg"
 tags: ["setup"]
 ---
@@ -9,18 +10,6 @@ tags: ["setup"]
 Change the values in `src/config.json` to configure the blog to your liking, see below for more information.
 
 most importantly, set `SITE` and `BASE` to your corresponding values.
-
-## SITE
-
-- when deploying to github pages, set this to your site url
-  (e.g. "https://<your-github-username>.github.io")
-
-## BASE
-
-- when deploying to github pages, set this to your repo name
-  except if you're either using a custom domain or 
-  your repo name is `<your-github-username>.github.io` 
-  (in which case, set it to "")
 
 ## SITE_TITLE
 
@@ -74,3 +63,16 @@ most importantly, set `SITE` and `BASE` to your corresponding values.
 - YOUTUBE_URL
 - SUBSTACK_URL
 - EMAIL
+
+## MANUAL_SITE_BASE
+
+- set this to true if you want to manually set the site and base url
+  (e.g. when not deploying to github pages)
+
+## SITE
+
+- will be set automatically when deploying to github pages
+
+## BASE
+
+- will be set automatically when deploying to github pages
