@@ -15,7 +15,7 @@ const pages = posts.reduce(
         ? ""
         : (post.data.shortDescription ?? post.data.description ?? ""),
       useHero: post.data.useHeroAsOGImage ?? false,
-      heroImage: post.data.heroImage,
+      heroImage: post.data.heroImage?.replace("../..", "/src"),
     };
     return acc;
   },

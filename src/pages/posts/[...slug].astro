@@ -23,7 +23,8 @@ const { Content } = await post.render();
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/*.{jpeg,jpg,png,gif}"
 );
-if (post.data.heroImage && !images[post.data.heroImage])
+const replacedHero = post.data.heroImage?.replace("../..", "/src");
+if (replacedHero && !images[replacedHero])
   throw new Error(
     `"${post.data.heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
   );
@@ -34,9 +35,9 @@ if (post.data.heroImage && !images[post.data.heroImage])
 
   <main class="max-w-2xl lg:max-w-3xl mx-auto my-0 h-full p-4">
     {
-      post.data.heroImage && post.data.hideHero !== true ? (
+      replacedHero && post.data.hideHero !== true ? (
         <Image
-          src={images[post.data.heroImage]()}
+          src={images[replacedHero]()}
           alt=""
           class="w-full h-80 object-cover rounded-xl shadow"
         />

@@ -9,16 +9,20 @@ const { title, description, pubDate, slug, heroImage, tags } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/*.{jpeg,jpg,png,gif}"
 );
-if (!images[heroImage])
+
+// replace ../.. with src in heroImage
+let replacedHero = heroImage.replace("../..", "/src");
+
+if (!images[replacedHero])
   throw new Error(
-    `"${heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+    `"${replacedHero}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
   );
 ---
 
 <article class="relative isolate flex flex-col gap-8 lg:flex-row group">
   <div class="relative aspect-[16/9] lg:w-64 lg:shrink-0">
     <Image
-      src={images[heroImage]()}
+      src={images[replacedHero]()}
       alt=""
       class="absolute inset-0 h-full w-full rounded-2xl bg-base-50 dark:bg-base-900 object-cover"
     />
