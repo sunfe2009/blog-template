@@ -61,7 +61,7 @@ content:
               pink,
               rose,
             ]
-      - name: social
+      - name: SOCIAL_LINKS
         label: Social links
         type: object
         fields:
