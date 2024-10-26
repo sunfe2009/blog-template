@@ -1,3 +1,5 @@
+<img width="1473" alt="template-1-wide" src="https://github.com/user-attachments/assets/5debfd0f-e2ee-40f1-919e-d05c6bec82b4">
+
 # astro blog template
 
 minimalistic but opinionated blog template using [astro](https://astro.build/) and [svelte](https://svelte.dev/). aims to be super easy to deploy and use, with a focus on performance and SEO, ease-of-use and design.
