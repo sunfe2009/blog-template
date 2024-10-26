@@ -31,17 +31,31 @@ the demo blog doubles as a tutorial on how to use this template:
 
 ## Minimal setup with github pages
 
-1. Fork this repository
+1. Fork this repository.
 
-2. Set up your blog info in `src/config.json` (most importantly set 'SITE' and 'BASE' to your corresponding values, see [configuring your site](https://flo-bit.dev/blog-template/posts/configuring-the-blog))
+2. In your repository settings, set up github pages to deploy using github actions (*SETTINGS* -> *PAGES* -> *SOURCE*: **Github Actions**)
 
-3. Add your blog posts in `src/content/blog/`
+3. Your blog should be live in about 1 minute at `https://<your-github-username>.github.io/<your-repo-name>`
 
-4. Add your info in `src/content/info/`:
+For editing the blog you can either edit the code directly or use the preconfigured [pagescms](https://next.pagescms.org).
+
+### Editing with pagescms
+
+4. Go to [pagescms](https://next.pagescms.org) and log in with your github account and authorize the app.
+
+5. Add your repository to pagescms and open it.
+
+6. Now you can edit your website configuration, about page, description and blog posts directly in the browser.
+
+7. Your changes will be automatically pushed to your repository and deployed to github pages in about 1 minute everytime you hit save.
+
+### Editing the code
+
+4. Set up your blog info in `src/config.json` (leaving SITE, BASE, and MANUAL_SITE_BASE, as they are).
+
+5. Add your blog posts in `src/content/blog/`
+
+6. Add your info in `src/content/info/`:
 
 - `description.md` is used for the homepage description
 - `about.md` is used for the about page
-
-5. In your repository settings, set up github pages to deploy using github actions
-
-6. Enjoy your new blog at: `https://<your-github-username>.github.io/<your-repo-name>`
