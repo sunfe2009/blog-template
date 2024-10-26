@@ -36,3 +36,13 @@ export const BASE_COLOR: BaseColors = "stone";
 // one of 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal',
 // 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose'
 export const ACCENT_COLOR: AccentColors = "amber";
+
+// set any of these to '' to hide the respective icon in the footer
+export const FACEBOOK_URL = "";
+export const TWITTER_URL = "https://x.com/flobit_dev";
+export const GITHUB_URL = "https://github.com/flo-bit";
+export const INSTAGRAM_URL = "https://www.instagram.com/flobit.dev/";
+export const LINKEDIN_URL = "";
+export const YOUTUBE_URL = "";
+export const SUBSTACK_URL = "https://flo-bit.substack.com";
+export const EMAIL = "flo.bit.dev@gmail.com";

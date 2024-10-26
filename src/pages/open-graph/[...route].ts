@@ -44,7 +44,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
   },
 
   // For each page, this callback will be used to customize the OpenGraph image.
-  getImageOptions: (path, page) => ({
+  getImageOptions: (_, page) => ({
     title: page.title,
     description: page.description,
     bgImage: {

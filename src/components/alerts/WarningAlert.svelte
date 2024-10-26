@@ -5,11 +5,11 @@
 	export { classes as class };
 </script>
 
-<div class="rounded-xl bg-yellow-50 dark:bg-yellow-500/5 p-4 dark:ring-1 dark:ring-yellow-500/10 not-prose max-w-full {classes}">
+<div class="rounded-xl bg-amber-50 dark:bg-amber-500/5 p-4 dark:ring-1 dark:ring-amber-500/10 not-prose max-w-full {classes}">
 	<div class="flex">
 		<div class="flex-shrink-0">
 			<svg
-				class="h-5 w-5 text-yellow-500"
+				class="h-5 w-5 text-amber-500"
 				viewBox="0 0 20 20"
 				fill="currentColor"
 				aria-hidden="true"
@@ -22,8 +22,8 @@
 			</svg>
 		</div>
 		<div class="ml-3">
-			<h3 class="text-sm font-medium text-yellow-800 dark:text-yellow-400">{title}</h3>
-			<div class="mt-2 text-sm text-yellow-700 dark:text-yellow-300">
+			<h3 class="text-sm font-medium text-amber-800 dark:text-amber-400">{title}</h3>
+			<div class="mt-2 text-sm text-amber-700 dark:text-amber-300">
 				<p>
 					<slot></slot>
 				</p>

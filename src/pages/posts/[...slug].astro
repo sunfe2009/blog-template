@@ -30,7 +30,7 @@ if (post.data.heroImage && !images[post.data.heroImage])
 ---
 
 <BaseLayout {...post.data} image={post.slug + ".png"}>
-  <Header />
+  <Header active="blog" />
 
   <main class="max-w-2xl lg:max-w-3xl mx-auto my-0 h-full p-4">
     {

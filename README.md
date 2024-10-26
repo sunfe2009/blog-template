@@ -19,6 +19,18 @@ Features:
 - ✅ Super easy to deploy as a static site
 - ✅ Includes some prebuilt components for you to use
 
+## tutorials
+
+the demo blog doubles as a tutorial on how to use this template:
+
+- [minimal setup with github pages](https://flo-bit.dev/blog-template/posts/how-to-use)
+
+- [adding content](https://flo-bit.dev/blog-template/posts/adding-content)
+
+- [supported markdown features](https://flo-bit.dev/blog-template/posts/markdown-style-guide)
+
+- [how to use mdx](https://flo-bit.dev/blog-template/posts/using-mdx)
+
 ## Minimal setup with github pages
 
 1. Fork this repository

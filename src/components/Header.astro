@@ -10,6 +10,8 @@ import Search from "./search/Search.svelte";
 import HeaderLink from "./HeaderLink.astro";
 import CommandPalette from "./search/CommandPalette.svelte";
 import CodeCopyButton from "./CodeCopyButton.svelte";
+
+const { active } = Astro.props;
 ---
 
 <header>
@@ -18,18 +20,22 @@ import CodeCopyButton from "./CodeCopyButton.svelte";
     aria-label="Global"
   >
     <div class="flex lg:flex-1">
-      <a href={BASE + "/"} class="-m-1.5 p-1.5">
+      <a href={BASE + "/"} class="p-1.5">
         <span class="sr-only">go to home</span>
 
-        <div class="h-12 w-12 text-3xl">{SITE_FAVICON}</div>
+        <div class="text-3xl">{SITE_FAVICON}</div>
       </a>
     </div>
-    <div class="flex gap-x-12">
-      <HeaderLink href={BASE + "/"} class="text-sm font-semibold leading-6"
-        >Blog</HeaderLink
+    <div class="flex gap-x-10">
+      <HeaderLink
+        href={BASE + "/"}
+        active={active === "blog"}
+        class="text-sm font-semibold leading-6">Blog</HeaderLink
       >
-      <HeaderLink href={BASE + "/about"} class="text-sm font-semibold leading-6"
-        >About</HeaderLink
+      <HeaderLink
+        href={BASE + "/about"}
+        active={active === "about"}
+        class="text-sm font-semibold leading-6">About</HeaderLink
       >
 
       {MANUAL_DARK_MODE ? <ThemeToggle client:visible /> : null}
