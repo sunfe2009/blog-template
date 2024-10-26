@@ -3,11 +3,29 @@ media:
   output: ../../assets
 
 content:
+  - name: about
+    label: About page
+    path: src/content/info/about.md
+    type: file
+    fields:
+      - name: body
+        label: Body
+        type: rich-text
+  
+  - name: description
+    label: Description
+    path: src/content/info/description.md
+    type: file
+    fields:
+      - name: body
+        label: Body
+        type: rich-text
+  
   - name: posts
     label: Posts
     path: src/content/blog
     type: collection
-    filename: '{primary}.mdx'
+    filename: '{primary}.md'
     view:
       fields: [ title ]
       primary: title
