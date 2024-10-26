@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
 import pagefind from "vite-plugin-pagefind";
-import { BASE } from "./src/consts";
+import { BASE, SITE } from "./src/consts";
 
 // https://astro.build/config
 export default defineConfig({
@@ -50,7 +50,7 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
-  site: "https://flo-bit.dev",
+  site: SITE,
   base: BASE,
   output: "static",
 });

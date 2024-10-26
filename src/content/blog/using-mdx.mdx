@@ -1,10 +1,10 @@
 ---
 title: "Using MDX"
-shortDescription: "Learn how to use MDX in Astro"
-description: "Lorem ipsum dolor sit amet"
-pubDate: "Jun 01 2024"
+description: "How to use MDX in your blog posts"
+pubDate: "Jun 02 2024"
 heroImage: "/src/assets/blog-placeholder-3.jpg"
 hideHero: true
+tags: ["setup", "markdown"]
 ---
 
 This theme comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in your `astro.config.mjs` config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.
@@ -25,6 +25,44 @@ import HeaderLink from "../../components/HeaderLink.astro";
 <HeaderLink href="#" onclick="alert('clicked!')">
   Embedded component in MDX
 </HeaderLink>
+
+## Included Components
+
+Currently the only conponents included are `Alerts`, which you can see in the example below:
+
+import SuccessAlert from '$components/alerts/SuccessAlert.svelte';
+
+<SuccessAlert title="Sucess">
+  This is a success alert
+</SuccessAlert>
+
+import InfoAlert from '$components/alerts/InfoAlert.svelte';
+
+<InfoAlert title="Info" class="mt-6">
+  This is an info alert
+</InfoAlert>
+
+import WarningAlert from '$components/alerts/WarningAlert.svelte';
+
+<WarningAlert title="Warning" class="mt-6">
+  This is a warning alert
+</WarningAlert>
+
+import ErrorAlert from '$components/alerts/ErrorAlert.svelte';
+
+<ErrorAlert title="Error" class="mt-6">
+  This is an error alert
+</ErrorAlert>
+
+Use them like this:
+
+```tsx
+import SuccessAlert from '$components/alerts/SuccessAlert.svelte';
+
+<SuccessAlert title="Sucess">
+  This is a success alert
+</SuccessAlert>
+```
 
 ## More Links
 

@@ -1,0 +1,29 @@
+---
+title: "Adding content"
+description: "Learn how to add content to your blog"
+pubDate: "Oct 24 2024"
+heroImage: "/src/assets/blog-placeholder-4.jpg"
+tags: ["setup", "markdown"]
+---
+
+Add content to your blog by creating new markdown files in the `src/content/blog/` directory. Each markdown file should have a frontmatter block at the top of the file that contains metadata about the post. Here is an example of a frontmatter block:
+
+```md
+---
+title: "My first blog post"
+description: "This is my first blog post"
+pubDate: "Oct 24 2024"
+heroImage: "/src/assets/blog-placeholder-4.jpg"
+tags: ["first", "blog"]
+---
+```
+
+After that just write your content in markdown format (you don't need to write the title again, it will be automatically added to the page). You can also use MDX to include components in your markdown files. For more information on how to use MDX, see the post about [using MDX](../using-mdx).
+
+import WarningAlert from '$components/alerts/WarningAlert.svelte';
+
+<WarningAlert title="Hero Image" class="mt-6">
+  Always add the `heroImage` in the above format starting with `/src/assets` followed by the image name.
+    <br/>
+  This image also **has to be** in the `src/assets/` directory.
+</WarningAlert>

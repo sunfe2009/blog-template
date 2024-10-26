@@ -1,3 +1,15 @@
+---
+title: "Configuring a post"
+description: "Learn how to configure a post"
+pubDate: "Oct 23 2024"
+heroImage: "/src/assets/blog-placeholder-3.jpg"
+tags: ["setup"]
+---
+
+a copy of `src/content/config.ts` is included below for reference. the comments explain all field values in the frontmatter.
+
+
+```ts
 import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({
@@ -36,3 +48,5 @@ const blog = defineCollection({
 });
 
 export const collections = { blog };
+
+```

@@ -13,7 +13,7 @@ const pages = posts.reduce(
       title: post.data.noTextInOGImage ? "" : post.data.title,
       description: post.data.noTextInOGImage
         ? ""
-        : (post.data.shortDescription ?? ""),
+        : (post.data.shortDescription ?? post.data.description ?? ""),
       useHero: post.data.useHeroAsOGImage ?? false,
       heroImage: post.data.heroImage,
     };
