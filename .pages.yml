@@ -34,4 +34,4 @@ content:
         type: image
       - name: body
         label: Body
-        type: code
+        type: rich-text
