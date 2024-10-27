@@ -104,6 +104,11 @@
 
       event.preventDefault();
     }
+
+    // close on escape
+    if (event.key === "Escape" && $showSearch) {
+      $showSearch = false;
+    }
   }}
 />
 
