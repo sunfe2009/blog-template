@@ -36,7 +36,7 @@ const total = Math.ceil((await getBlogPosts()).length / POSTS_PER_PAGE);
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <Header active="blog" />
 
-  <main class="mx-auto max-w-2xl lg:max-w-3xl py-16">
+  <main class="mx-auto max-w-2xl lg:max-w-3xl py-16 px-4">
     <BlogPost>
       <h1>All blog posts</h1>
       <div class="my-14 space-y-16 max-w-3xl not-prose">
