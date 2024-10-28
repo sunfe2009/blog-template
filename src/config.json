@@ -19,6 +19,6 @@
     "EMAIL": "flo.bit.dev@gmail.com"
   },
   "MANUAL_SITE_BASE": false,
-  "SITE": "https://flo-bit.github.io",
-  "BASE": "/blog"
+  "SITE": "https://hello.there",
+  "BASE": ""
 }

@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config.json";
+import { SITE_TITLE, SITE_DESCRIPTION, BASE } from "../config.json";
 import { getBlogPosts } from "src/utils";
 
 export async function GET(context) {
@@ -10,7 +10,7 @@ export async function GET(context) {
     site: context.site,
     items: posts.map((post) => ({
       ...post.data,
-      link: `/blog/${post.slug}/`,
+      link: `${BASE}/blog/${post.slug}/`,
     })),
   });
 }
