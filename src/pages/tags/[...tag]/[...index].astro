@@ -1,24 +1,14 @@
 ---
-import {
-  SITE_TITLE,
-  SITE_DESCRIPTION,
-  POSTS_PER_PAGE,
-  ACCENT_COLOR,
-  BASE_COLOR,
-} from "../../../config.json";
+import { POSTS_PER_PAGE } from "../../../config.json";
 
-import Header from "$components/Header.astro";
-import Footer from "$components/Footer.astro";
-import BaseLayout from "$layouts/BaseLayout.astro";
-import BlogEntry from "$components/BlogEntry.astro";
-import Pagination from "$components/Pagination.astro";
-import { colorBaseClasses, colorAccentClasses } from "src/colors";
 import { getBlogPosts } from "src/utils";
+import PostList from "$layouts/PostList.astro";
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
   const tags = new Map<string, number>();
 
+  // get number of posts for each tag
   posts.forEach((post: any) => {
     post.data.tags?.forEach((tag: string) =>
       tags.set(tag, (tags.get(tag) || 0) + 1)
@@ -31,23 +21,15 @@ export async function getStaticPaths() {
   }[] = [];
 
   Array.from(tags).forEach(([tag, count]) => {
-    const sanitizedTag = tag.split(" ").join("-"); // Replace spaces with hyphens
+    const sanitizedTag = tag.split(" ").join("-");
     const totalPages = Math.ceil(count / POSTS_PER_PAGE);
 
-    // 1. Path without index (defaults to page 1)
     paths.push({
       params: { tag: sanitizedTag },
       props: { tag, index: 1 },
     });
 
-    // 2. Path with index=1 (same as no index)
-    paths.push({
-      params: { tag: sanitizedTag, index: "1" },
-      props: { tag, index: 1 },
-    });
-
-    // 3. Additional paginated paths (from page 2 onwards)
-    for (let i = 2; i <= totalPages; i++) {
+    for (let i = 1; i <= totalPages; i++) {
       paths.push({
         params: { tag: sanitizedTag, index: i.toString() },
         props: { tag, index: i },
@@ -70,36 +52,14 @@ const total = Math.ceil(
 );
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <Header active="blog" />
-
-  <main class="mx-auto max-w-2xl lg:max-w-3xl py-16">
-    <div
-      class={"prose dark:prose-invert text-base-900 dark:text-base-50 px-4 " +
-        colorBaseClasses[BASE_COLOR] +
-        " " +
-        colorAccentClasses[ACCENT_COLOR]}
-    >
-      <h1 class="inline-flex gap-4 flex-col sm:flex-row sm:items-center">
-        Posts tagged with <div>
-          <p
-            class="not-prose bold text-xl rounded-full inline-block bg-base-200 px-4 py-1.5 text-base-800 dark:bg-base-800 dark:text-base-300 border border-base-300 dark:border-base-700"
-          >
-            {tag}
-          </p>
-        </div>
-      </h1>
+<PostList {posts} totalPages={total} currentPage={index ?? 1} {tag}>
+  <h1 class="inline-flex gap-4 flex-col sm:flex-row sm:items-center">
+    Posts tagged with <div>
+      <p
+        class="not-prose bold text-xl rounded-full inline-block bg-base-200 px-4 py-1.5 text-base-800 dark:bg-base-800 dark:text-base-300 border border-base-300 dark:border-base-700"
+      >
+        {tag}
+      </p>
     </div>
-    <div class="my-14 space-y-16 max-w-3xl px-4">
-      {posts.map((post: any) => <BlogEntry {...post.data} slug={post.slug} />)}
-    </div>
-
-    {
-      total > 1 ? (
-        <Pagination current={index ?? 1} total={total} tag={tag} />
-      ) : null
-    }
-  </main>
-
-  <Footer />
-</BaseLayout>
+  </h1>
+</PostList>

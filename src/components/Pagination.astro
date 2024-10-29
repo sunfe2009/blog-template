@@ -2,6 +2,12 @@
 import { BASE } from "../config.json";
 import PaginationNumber from "./PaginationNumber.astro";
 
+type Props = {
+  total: number;
+  current: number;
+  tag?: string;
+};
+
 const { total, current, tag } = Astro.props;
 
 function getVisiblePages(total: number, current: number): Array<number | null> {

@@ -1,37 +1,15 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION, POSTS_PER_PAGE } from "../config.json";
-
-import Footer from "$components/Footer.astro";
-import Header from "$components/Header.astro";
-import BaseLayout from "$layouts/BaseLayout.astro";
-import BlogPost from "$layouts/BlogPost.astro";
-import BlogEntry from "$components/BlogEntry.astro";
+import { POSTS_PER_PAGE } from "../config.json";
 
 import { Content } from "$content/info/description.md";
-import Pagination from "$components/Pagination.astro";
 import { getBlogPosts } from "src/utils";
+import PostList from "$layouts/PostList.astro";
 
 const posts = (await getBlogPosts()).splice(0, POSTS_PER_PAGE);
 
 const total = Math.ceil((await getBlogPosts()).length / POSTS_PER_PAGE);
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <Header active="blog" />
-  <main class="max-w-2xl lg:max-w-3xl mx-auto mt-16 px-4">
-    <BlogPost>
-      <Content />
-      <div class="my-14 space-y-16 max-w-3xl not-prose">
-        {
-          posts.map((post: any) => (
-            <BlogEntry {...post.data} slug={post.slug} />
-          ))
-        }
-      </div>
-    </BlogPost>
-
-    {total > 1 ? <Pagination current={1} total={total} /> : null}
-  </main>
-
-  <Footer />
-</BaseLayout>
+<PostList {posts} totalPages={total} currentPage={1}>
+  <Content />
+</PostList>

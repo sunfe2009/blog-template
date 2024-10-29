@@ -1,18 +1,7 @@
 ---
-import {
-  SITE_TITLE,
-  SITE_DESCRIPTION,
-  POSTS_PER_PAGE,
-} from "../../config.json";
-
-import Header from "$components/Header.astro";
-import Footer from "$components/Footer.astro";
-import BaseLayout from "$layouts/BaseLayout.astro";
-import BlogEntry from "$components/BlogEntry.astro";
-import Pagination from "$components/Pagination.astro";
+import { POSTS_PER_PAGE } from "../../config.json";
 import { getBlogPosts } from "src/utils";
-
-import BlogPost from "$layouts/BlogPost.astro";
+import PostList from "$layouts/PostList.astro";
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
@@ -33,23 +22,6 @@ const posts = (await getBlogPosts()).splice(
 const total = Math.ceil((await getBlogPosts()).length / POSTS_PER_PAGE);
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <Header active="blog" />
-
-  <main class="mx-auto max-w-2xl lg:max-w-3xl py-16 px-4">
-    <BlogPost>
-      <h1>All blog posts</h1>
-      <div class="my-14 space-y-16 max-w-3xl not-prose">
-        {
-          posts.map((post: any) => (
-            <BlogEntry {...post.data} slug={post.slug} />
-          ))
-        }
-      </div>
-    </BlogPost>
-
-    {total > 1 ? <Pagination current={index} total={total} /> : null}
-  </main>
-
-  <Footer />
-</BaseLayout>
+<PostList {posts} totalPages={total} currentPage={index}>
+  <h1>All blog posts</h1>
+</PostList>

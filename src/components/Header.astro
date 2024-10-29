@@ -5,11 +5,12 @@ import {
   SEARCH_ENABLED,
   SITE_FAVICON,
 } from "../config.json";
-import ThemeToggle from "./ThemeToggle.svelte";
-import Search from "./search/Search.svelte";
+import ThemeToggle from "./ThemeToggle.astro";
 import HeaderLink from "./HeaderLink.astro";
+import CodeCopyButton from "./CodeCopyButton.astro";
+
 import CommandPalette from "./search/CommandPalette.svelte";
-import CodeCopyButton from "./CodeCopyButton.svelte";
+import Search from "./search/Search.svelte";
 
 const { active } = Astro.props;
 ---
@@ -38,7 +39,7 @@ const { active } = Astro.props;
         class="text-sm font-semibold leading-6">About</HeaderLink
       >
 
-      {MANUAL_DARK_MODE ? <ThemeToggle client:visible /> : null}
+      {MANUAL_DARK_MODE ? <ThemeToggle /> : null}
 
       {SEARCH_ENABLED ? <Search client:visible /> : null}
     </div>
@@ -46,4 +47,4 @@ const { active } = Astro.props;
 </header>
 
 <CommandPalette client:load />
-<CodeCopyButton client:load />
+<CodeCopyButton />

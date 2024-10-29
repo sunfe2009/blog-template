@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { BASE } from "../../config.json";
+
   import { fade, slide } from "svelte/transition";
   import type { Pagefind } from "vite-plugin-pagefind/types";
   import { showSearch } from "./CommandPaletteStore";
@@ -67,7 +69,7 @@
     try {
       // @ts-ignore
       pagefind = await import(
-        import.meta.env.BASE_URL + "/pagefind/pagefind.js"
+        BASE + "/pagefind/pagefind.js"
       );
     } catch (error) {
       console.error("Pagefind module not found, will retry after build");
