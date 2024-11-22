@@ -13,7 +13,7 @@
     if (!uri && user) {
       let posts = await getUserPosts(user);
 
-      const url = window.location.href;
+      const url = "https://flo-bit.dev/blog-template/posts/likes-via-bluesky/";//window.location.href;
 
       // @ts-expect-error: weird type fuckery
       const post = posts.find((post) => post.post.embed?.external?.uri === url);
@@ -41,7 +41,7 @@
 
 {#if postUri}
   <div class="not-prose flex flex-col mt-16 gap-4">
-    <div class="text-sm text-base-100 font-semibold">
+    <div class="text-sm text-base-950 dark:text-base-100 font-semibold">
       {postLikesCount} like{postLikesCount === 1 ? "" : "s"} on bluesky
     </div>
 
@@ -50,7 +50,7 @@
         <a
           href={`https://bsky.app/profile/${user.actor.handle}`}
           class={cn(
-            "relative inline-block size-12 rounded-full overflow-hidden ring-2 ring-base-900 bg-base-950",
+            "relative inline-block size-12 rounded-full overflow-hidden ring-2 ring-base-50 dark:ring-base-900  bg-base-950",
             index === 0 ? "-ml-2" : ""
           )}
           target="_blank"
@@ -66,7 +66,7 @@
 
       {#if postLikesData.length < postLikesCount}
         <div
-          class="z-10 text-sm text-accent-300 size-12 rounded-full flex items-center justify-center bg-accent-950 ring-2 ring-base-900 font-semibold mb-4"
+          class="z-10 text-sm text-accent-700 dark:text-accent-300 size-12 rounded-full flex items-center justify-center bg-accent-100 dark:bg-accent-950 ring-2 ring-base-50 dark:ring-base-900 font-semibold mb-4"
         >
           +{postLikesCount - postLikesData.length}
         </div>
@@ -76,7 +76,7 @@
     <a
       target="_blank"
       href={atUriToPostUri(postUri)}
-      class="text-sm text-accent-500 font-semibold inline-flex w-fit items-center gap-1.5 bg-accent-900/30 px-3 py-2 rounded-xl border border-accent-900/50"
+      class="text-sm text-accent-600 dark:text-accent-300 font-semibold inline-flex w-fit items-center gap-1.5 bg-accent-100 dark:bg-accent-900/30 px-3 py-2 rounded-xl border border-accent-300 hover:bg-accent-200 dark:hover:bg-accent-800/30 dark:border-accent-900/50 transition-colors duration-100"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

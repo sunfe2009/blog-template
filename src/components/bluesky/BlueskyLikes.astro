@@ -8,18 +8,17 @@ let posts = await getCollection("posts");
 
 const path = Astro.url.pathname;
 
-console.log(SITE + BASE + path);
-const url = SITE + BASE + path;
+const url = SITE + path;
 
 // get first post (sorted by indexedAt) with url in embed.external.uri
 const post = posts
   .sort(
     (a, b) =>
-      new Date(a.data.indexedAt).getTime() -
-      new Date(b.data.indexedAt).getTime()
+      new Date(b.data.indexedAt).getTime() -
+      new Date(a.data.indexedAt).getTime()
   )
   // @ts-expect-error: weird type fuckery
-  .find((post) => post.data.record.embed?.external?.uri === url);
+  .find((post) => post.data.embed?.external?.uri === url);
 
 let likesData = post ? await getLikes(post.data.uri) : [];
 ---

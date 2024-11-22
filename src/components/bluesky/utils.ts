@@ -192,6 +192,5 @@ export async function getUserPosts(actor: string) {
 	const getPostURL = `https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=${actor}&limit=100`;
 	const posts = await fetch(getPostURL);
 	const postsData = await posts.json();
-	console.log(postsData);
 	return postsData.feed;
 }
