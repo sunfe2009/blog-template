@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 import FormattedDate from "$components/FormattedDate.astro";
 import { BASE } from "../../config.json";
 import { getBlogPosts } from "src/utils";
+import BlueskyLikes from "$components/bluesky/BlueskyLikes.astro";
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
@@ -63,6 +64,7 @@ if (replacedHero && !images[replacedHero])
 
       <h1 class="mt-4">{post.data.title}</h1>
       <Content />
+      <BlueskyLikes />
     </BlogPost>
   </main>
   <Footer />

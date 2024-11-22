@@ -54,4 +54,8 @@ export default defineConfig({
   site: SITE,
   base: BASE,
   output: "static",
+
+  experimental: {
+    contentLayer: true,
+  },
 });

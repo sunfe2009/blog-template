@@ -16,9 +16,11 @@
     "LINKEDIN_URL": "",
     "YOUTUBE_URL": "",
     "SUBSTACK_URL": "https://flo-bit.substack.com",
-    "EMAIL": "flo.bit.dev@gmail.com"
+    "EMAIL": "flo.bit.dev@gmail.com",
+    "BLUESKY_URL": "https://bsky.app/profile/flo-bit.dev"
   },
+  "BLUESKY_IDENTIFIER": "flo-bit.dev",
   "MANUAL_SITE_BASE": false,
-  "SITE": "https://hello.there",
-  "BASE": ""
+  "SITE": "https://flo-bit.dev",
+  "BASE": "/blog"
 }

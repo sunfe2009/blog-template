@@ -1,0 +1,37 @@
+---
+import { SITE, BASE, BLUESKY_IDENTIFIER } from "../../config.json";
+import { getCollection } from "astro:content";
+import { getLikes } from "./utils";
+import { cn } from "src/utils";
+import Likes from "./Likes.svelte";
+
+let posts = await getCollection("posts");
+
+console.log(posts.map((post) => post.data.record.embed?.external?.uri));
+
+const path = Astro.url.pathname;
+
+console.log(SITE + BASE + path);
+const url = SITE + BASE + path;
+
+// get first post (sorted by indexedAt) with url in embed.external.uri
+const post = posts
+  .sort(
+    (a, b) =>
+      new Date(a.data.indexedAt).getTime() -
+      new Date(b.data.indexedAt).getTime()
+  )
+  .find((post) => post.data.record.embed?.external?.uri === url);
+
+let likesData = post ? await getLikes(post.data.uri) : [];
+
+console.log(likesData);
+---
+
+<Likes
+  uri={post?.data.uri}
+  likesData={likesData}
+  likesCount={post?.data.likeCount}
+  user={BLUESKY_IDENTIFIER}
+  client:idle
+/>
