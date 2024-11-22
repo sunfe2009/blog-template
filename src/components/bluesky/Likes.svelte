@@ -13,7 +13,7 @@
     if (!uri && user) {
       let posts = await getUserPosts(user);
 
-      const url = "https://flo-bit.dev/blog-template/posts/likes-via-bluesky/";//window.location.href;
+      const url = window.location.href;
 
       // @ts-expect-error: weird type fuckery
       const post = posts.find((post) => post.post.embed?.external?.uri === url);
@@ -58,8 +58,8 @@
           <img
             title={user.actor.handle}
             loading="lazy"
-            src={user.actor.avatar}
-            alt={"liked by " + user.actor.handle}
+            src={user.actor.avatar.replace('avatar', 'avatar_thumbnail')}
+            alt={"liked by " + user.actor.displayName}
           />
         </a>
       {/each}
