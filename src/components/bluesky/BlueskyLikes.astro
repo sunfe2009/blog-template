@@ -2,12 +2,9 @@
 import { SITE, BASE, BLUESKY_IDENTIFIER } from "../../config.json";
 import { getCollection } from "astro:content";
 import { getLikes } from "./utils";
-import { cn } from "src/utils";
 import Likes from "./Likes.svelte";
 
 let posts = await getCollection("posts");
-
-console.log(posts.map((post) => post.data.record.embed?.external?.uri));
 
 const path = Astro.url.pathname;
 
@@ -21,11 +18,10 @@ const post = posts
       new Date(a.data.indexedAt).getTime() -
       new Date(b.data.indexedAt).getTime()
   )
+  // @ts-expect-error: weird type fuckery
   .find((post) => post.data.record.embed?.external?.uri === url);
 
 let likesData = post ? await getLikes(post.data.uri) : [];
-
-console.log(likesData);
 ---
 
 <Likes

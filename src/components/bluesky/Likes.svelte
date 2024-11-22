@@ -15,6 +15,7 @@
 
       const url = window.location.href;
 
+      // @ts-expect-error: weird type fuckery
       const post = posts.find((post) => post.post.embed?.external?.uri === url);
 
       if (post) {
@@ -46,21 +47,21 @@
 
     <div class="isolate flex -space-x-2 overflow-hidden px-4 flex-wrap">
       {#each postLikesData as user, index}
-          <a
-            href={`https://bsky.app/profile/${user.actor.handle}`}
-            class={cn(
-              "relative inline-block size-12 rounded-full overflow-hidden ring-2 ring-base-900 bg-base-950",
-              index === 0 ? "-ml-2" : ""
-            )}
-            target="_blank"
-          >
-            <img
-              title={user.actor.handle}
-              loading="lazy"
-              src={user.actor.avatar}
-              alt={"liked by " + user.actor.handle}
-            />
-          </a>
+        <a
+          href={`https://bsky.app/profile/${user.actor.handle}`}
+          class={cn(
+            "relative inline-block size-12 rounded-full overflow-hidden ring-2 ring-base-900 bg-base-950",
+            index === 0 ? "-ml-2" : ""
+          )}
+          target="_blank"
+        >
+          <img
+            title={user.actor.handle}
+            loading="lazy"
+            src={user.actor.avatar}
+            alt={"liked by " + user.actor.handle}
+          />
+        </a>
       {/each}
 
       {#if postLikesData.length < postLikesCount}
