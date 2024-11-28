@@ -3,10 +3,13 @@ import { BLUESKY_IDENTIFIER } from "../../config.json";
 import { getCollection } from "astro:content";
 import { getLikes } from "./utils";
 import Likes from "./Likes.svelte";
+import { SITE } from "../../config.json";
 
 let posts = await getCollection("posts");
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+console.log("SITE:", SITE);
+console.log("Astro.url.pathname:", Astro.url.pathname);
+const canonicalURL = new URL(Astro.url.pathname, SITE);
 
 const url = canonicalURL.toString();
 
