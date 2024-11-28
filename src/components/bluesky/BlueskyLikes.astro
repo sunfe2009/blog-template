@@ -21,6 +21,10 @@ const post = posts
   .find((post) => post.data.embed?.external?.uri === url);
 
 let likesData = post ? await getLikes(post.data.uri) : [];
+
+console.log("posts:", posts.length);
+console.log(url);
+console.log(post);
 ---
 
 <Likes
