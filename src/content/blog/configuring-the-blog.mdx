@@ -7,13 +7,23 @@ heroImage: "/src/assets/blog-placeholder-1.jpg"
 tags: ["setup"]
 ---
 
-Editing the code: Change the values in `src/config.json` to configure the blog to your liking, see below for more information.
+Change the values in `src/config.json` to configure the blog to your liking, see below for more information.
 
-Editing using [pagecms](https://next.pagescms.org): After having logged in and opened your repository, click on "Website Configuration" and fill out the form, changing the values to your liking. Click "Save" to apply the changes (takes about 1 minute to deploy).
+## SITE
+
+- set this to your blog url, e.g. `https://flo-bit.dev`
+
+## BASE
+
+- set this to the base path of your blog, e.g. `/blog-template`
 
 ## SITE_TITLE
 
 - will be shown in the title and meta tags and og image
+
+## SITE_NAME
+
+- will be shown in the header, leave blank to hide
 
 ## SITE_DESCRIPTION
 
@@ -51,6 +61,10 @@ Editing using [pagecms](https://next.pagescms.org): After having logged in and o
   one of 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal',
   'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose'
 
+## BLUESKY_IDENTIFIER
+
+- set this to your bluesky handle, e.g. `flo-bit.dev` (without the `@`) will be used to show likes and comments on your blog posts from bluesky
+
 ## SOCIAL MEDIA LINKS
 
 - set any of these to '' to hide the respective icon in the footer
@@ -62,17 +76,5 @@ Editing using [pagecms](https://next.pagescms.org): After having logged in and o
 - LINKEDIN_URL
 - YOUTUBE_URL
 - SUBSTACK_URL
+- BLUESKY_URL
 - EMAIL
-
-## MANUAL_SITE_BASE
-
-- set this to true if you want to manually set the site and base url
-  (e.g. when not deploying to github pages)
-
-## SITE
-
-- will be set automatically when deploying to github pages
-
-## BASE
-
-- will be set automatically when deploying to github pages

@@ -12,10 +12,10 @@
   const { comment, depth = 0 } = $props();
 </script>
 
-<div class="border-l dark:border-base-800 border-base-300 pl-6">
+<div class="border-l dark:border-base-800 border-base-300 pl-3">
   <div class="mt-2 pb-2">
     <div
-      class="text-sm text-base-600 dark:text-base-500 flex items-center -ml-9"
+      class="text-sm text-base-600 dark:text-base-500 flex items-center -ml-6"
     >
       <Avatar
         src={comment.post.author.avatar}

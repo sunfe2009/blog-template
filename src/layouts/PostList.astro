@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config.json";
+import { SITE_TITLE, SITE_DESCRIPTION, BASE } from "../config.json";
 
 import Footer from "$components/Footer.astro";
 import Header from "$components/Header.astro";
@@ -8,25 +8,40 @@ import BlogEntry from "$components/BlogEntry.astro";
 
 import Pagination from "$components/Pagination.astro";
 import ProseWrapper from "./ProseWrapper.astro";
+import HeroImage from "$components/HeroImage.astro";
+import BigBlogEntry from "$components/BigBlogEntry.astro";
 
 type Props = {
   posts: Array<any>;
   totalPages: number;
   currentPage: number;
   tag?: string;
+  showFeatured?: boolean;
 };
 
-const { posts, totalPages, currentPage, tag } = Astro.props;
+const { posts, totalPages, currentPage, tag, showFeatured } = Astro.props;
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <Header active="blog" />
-  <main class="max-w-2xl lg:max-w-3xl mx-auto mt-16 px-4">
+  <main class="max-w-2xl lg:max-w-3xl mx-auto mt-8 px-4">
     <ProseWrapper>
       <slot />
     </ProseWrapper>
+
+    {
+      showFeatured ? (
+        <BigBlogEntry {...posts[0].data} slug={posts[0].slug} />
+      ) : null
+    }
     <div class="my-14 space-y-16 max-w-3xl">
-      {posts.map((post: any) => <BlogEntry {...post.data} slug={post.slug} />)}
+      {
+        posts.map((post: any, index: number) =>
+          index > 0 || !showFeatured ? (
+            <BlogEntry {...post.data} slug={post.slug} />
+          ) : null
+        )
+      }
     </div>
 
     {

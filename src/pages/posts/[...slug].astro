@@ -9,6 +9,7 @@ import FormattedDate from "$components/FormattedDate.astro";
 import { BASE } from "../../config.json";
 import { getBlogPosts } from "src/utils";
 import BlueskyLikes from "$components/bluesky/BlueskyLikes.astro";
+import Tag from "$components/Tag.astro";
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
@@ -41,7 +42,7 @@ if (replacedHero && !images[replacedHero])
         <Image
           src={images[replacedHero]()}
           alt=""
-          class="w-full h-80 object-cover rounded-xl shadow"
+          class="w-full h-80 object-cover rounded-xl shadow border border-base-400 dark:border-base-700"
         />
       ) : null
     }
@@ -49,16 +50,7 @@ if (replacedHero && !images[replacedHero])
       <div class="flex mt-8 items-center gap-x-4 text-xs">
         <FormattedDate date={post.data.pubDate} />
         <div class="flex gap-x-2">
-          {
-            post.data.tags?.map((tag: string) => (
-              <a
-                href={BASE + "/tags/" + tag}
-                class="relative z-10 rounded-full bg-base-100 px-3 py-1.5 font-medium text-base-700 hover:bg-base-200 dark:bg-base-800 dark:hover:bg-base-700 dark:text-base-300 border border-base-200 dark:border-base-700"
-              >
-                {tag}
-              </a>
-            ))
-          }
+          {post.data.tags?.map((tag: string) => <Tag {tag} />)}
         </div>
       </div>
 

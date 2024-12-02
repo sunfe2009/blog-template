@@ -216,3 +216,14 @@ export function numberToHumanReadable(number: number) {
 	}
 	return `${Math.floor(number / 1000000)}m`;
   }
+
+export function getCommentCount(comments: { replies?: any}[]) {
+  // recursively check for replies and add them up
+  let count = comments.length;
+  for(const comment of comments) {
+    if(comment.replies?.length) {
+      count += getCommentCount(comment.replies);
+    }
+  }
+  return count;
+}

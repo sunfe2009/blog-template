@@ -21,7 +21,6 @@
     "BLUESKY_URL": "https://bsky.app/profile/flo-bit.dev"
   },
   "BLUESKY_IDENTIFIER": "flo-bit.dev",
-  "MANUAL_SITE_BASE": true,
   "SITE": "https://flo-bit.dev",
   "BASE": "/blog-template"
 }

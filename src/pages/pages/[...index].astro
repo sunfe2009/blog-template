@@ -22,6 +22,11 @@ const posts = (await getBlogPosts()).splice(
 const total = Math.ceil((await getBlogPosts()).length / POSTS_PER_PAGE);
 ---
 
-<PostList {posts} totalPages={total} currentPage={index}>
+<PostList
+  {posts}
+  totalPages={total}
+  currentPage={index}
+  showFeatured={index === 1}
+>
   <h1>All blog posts</h1>
 </PostList>

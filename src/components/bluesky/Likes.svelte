@@ -7,7 +7,7 @@
 
   let postUri = $state(uri);
   let postLikesCount = $state(likesCount);
-  let postLikesData = $state(likesData.filter((like) => like.actor.avatar));
+  let postLikesData = $state(likesData.filter((like: any) => like.actor.avatar));
 
   onMount(async () => {
     if (!uri && user) {
@@ -41,9 +41,8 @@
 
 {#if postUri}
   <div class="not-prose flex flex-col mt-8 gap-4">
-
     <div class="text-sm text-base-950 dark:text-base-100 font-semibold">
-      {postLikesCount} like{postLikesCount === 1 ? "" : "s"} on bluesky
+      {postLikesCount} like{postLikesCount === 1 ? "" : "s"}
     </div>
 
     <div class="isolate flex -space-x-2 overflow-hidden px-4 flex-wrap">
