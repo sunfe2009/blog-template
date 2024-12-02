@@ -56,6 +56,11 @@ let comments = post ? await getComments(post.data.uri) : [];
 
 {
   !disableComments ? (
-    <Comments uri={post?.data.uri} comments={comments} client:idle />
+    <Comments
+      uri={post?.data.uri}
+      comments={comments}
+      user={BLUESKY_IDENTIFIER}
+      client:idle
+    />
   ) : null
 }
