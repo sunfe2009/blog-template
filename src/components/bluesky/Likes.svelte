@@ -40,7 +40,8 @@
 </script>
 
 {#if postUri}
-  <div class="not-prose flex flex-col mt-16 gap-4">
+  <div class="not-prose flex flex-col mt-8 gap-4">
+
     <div class="text-sm text-base-950 dark:text-base-100 font-semibold">
       {postLikesCount} like{postLikesCount === 1 ? "" : "s"} on bluesky
     </div>
@@ -58,7 +59,7 @@
           <img
             title={user.actor.handle}
             loading="lazy"
-            src={user.actor.avatar.replace('avatar', 'avatar_thumbnail')}
+            src={user.actor.avatar.replace("avatar", "avatar_thumbnail")}
             alt={"liked by " + user.actor.displayName}
           />
         </a>
@@ -72,26 +73,5 @@
         </div>
       {/if}
     </div>
-
-    <a
-      target="_blank"
-      href={atUriToPostUri(postUri)}
-      class="text-sm text-accent-600 dark:text-accent-300 font-semibold inline-flex w-fit items-center gap-1.5 bg-accent-100 dark:bg-accent-900/30 px-3 py-2 rounded-xl border border-accent-300 hover:bg-accent-200 dark:hover:bg-accent-800/30 dark:border-accent-900/50 transition-colors duration-100"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="size-6"
-        aria-hidden="true"
-      >
-        <path
-          d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z"
-        ></path>
-      </svg>
-
-      <span class="sr-only">Like</span>
-      on bluesky</a
-    >
   </div>
 {/if}

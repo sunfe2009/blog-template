@@ -64,7 +64,11 @@ if (replacedHero && !images[replacedHero])
 
       <h1 class="mt-4">{post.data.title}</h1>
       <Content />
-      <BlueskyLikes />
+
+      <BlueskyLikes
+        disableLikes={post.data.disableLikes}
+        disableComments={post.data.disableComments}
+      />
     </BlogPost>
   </main>
   <Footer />

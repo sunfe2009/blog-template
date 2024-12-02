@@ -10,6 +10,10 @@ const blog = defineCollection({
     // will be shown in the blog post list
     description: z.string(),
 
+    disableComments: z.boolean().optional(),
+
+    disableLikes: z.boolean().optional(),
+    
     // date published
     pubDate: z.coerce.date(),
 

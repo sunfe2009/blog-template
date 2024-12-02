@@ -4,6 +4,7 @@ import {
   MANUAL_DARK_MODE,
   SEARCH_ENABLED,
   SITE_FAVICON,
+  SITE_NAME,
 } from "../config.json";
 import ThemeToggle from "./ThemeToggle.astro";
 import HeaderLink from "./HeaderLink.astro";
@@ -24,7 +25,13 @@ const { active } = Astro.props;
       <a href={BASE + "/"} class="p-1.5">
         <span class="sr-only">go to home</span>
 
-        <div class="text-3xl">{SITE_FAVICON}</div>
+        <div class="text-3xl flex items-center gap-x-2">
+          {SITE_FAVICON}
+          <span
+            class="hidden md:block font-bold text-base text-base-950 dark:text-base-50"
+            >{SITE_NAME}</span
+          >
+        </div>
       </a>
     </div>
     <div class="flex gap-x-10">

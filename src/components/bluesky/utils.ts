@@ -27,23 +27,27 @@ export function renderPostAsHtml(post?: AppBskyFeedDefs.PostView | Post) {
 	}
 	const rt = new RichText(post.record as any);
 	let html = '';
+
+	const preLink = `<a target="_blank" rel="noopener noreferrer nofollow" class="text-accent-500 hover:text-accent-600 dark:hover:text-accent-400"`;
 	for (const segment of rt.segments()) {
 		if (segment.isLink()) {
-			html += `<a href="${escapeHTML(segment.link?.uri)}">${escapeHTML(
-				segment.text
-			)}</a>`;
+			html += `${preLink} href="${escapeHTML(
+				segment.link?.uri
+			)}">${escapeHTML(segment.text)}</a>`;
 		} else if (segment.isMention()) {
-			html += `<a href="https://bsky.app/profile/${escapeHTML(
+			html += `${preLink} href="https://bsky.app/profile/${escapeHTML(
 				segment.mention?.did
 			)}">${escapeHTML(segment.text)}</a>`;
 		} else if (segment.isTag()) {
-			html += `<a href="https://bsky.app/hastag/${escapeHTML(
+			html += `${preLink} href="https://bsky.app/hastag/${escapeHTML(
 				segment.tag?.tag
 			)}">#${escapeHTML(segment.tag?.tag)}</a>`;
 		} else {
 			html += escapeHTML(segment.text);
 		}
 	}
+// replace new lines with <br>
+	html = html.replace(/\n/g, '<br>');
 	return html;
 }
 
@@ -194,3 +198,21 @@ export async function getUserPosts(actor: string) {
 	const postsData = await posts.json();
 	return postsData.feed;
 }
+
+export async function getComments(uri: string) {
+	const getCommentsURL = `https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=${uri}&depth=10`;
+	const comments = await fetch(getCommentsURL);
+	const commentsData = await comments.json();
+	return commentsData.thread.replies;
+}
+
+
+export function numberToHumanReadable(number: number) {
+	if(number < 1000) {
+	  return number;
+	}
+	if(number < 1000000) {
+	  return `${Math.floor(number / 1000)}k`;
+	}
+	return `${Math.floor(number / 1000000)}m`;
+  }

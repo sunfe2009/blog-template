@@ -5,6 +5,7 @@ pubDate: "Nov 22 2024"
 published: true
 heroImage: "/src/assets/blog-placeholder-3.jpg"
 tags: ["setup"]
+disableComments: true
 ---
 
 You can show likes on your blog posts using bluesky.
