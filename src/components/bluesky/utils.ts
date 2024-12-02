@@ -203,7 +203,8 @@ export async function getComments(uri: string) {
 	const getCommentsURL = `https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=${uri}&depth=10`;
 	const comments = await fetch(getCommentsURL);
 	const commentsData = await comments.json();
-	return commentsData.thread.replies;
+	const replies = commentsData.thread.replies;
+	return replies.sort((a: any, b: any) => new Date(b.post.record.createdAt).getTime() - new Date(a.post.record.createdAt).getTime());
 }
 
 

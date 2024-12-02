@@ -23,7 +23,7 @@
         size="size-6"
       />
       <a
-		target="_blank"
+        target="_blank"
         rel="noopener noreferrer nofollow"
         class="ml-2 dark:text-base-400 hover:text-base-500 hover:dark:text-base-300"
         href={`https://bsky.app/profile/${comment.post.author.did}`}
@@ -32,7 +32,7 @@
       </a>
 
       <div class="text-xs ml-2 text-base-500">
-        <RelativeTime date={new Date(comment.post.indexedAt)} locale="en" />
+        <RelativeTime date={new Date(comment.post.record.createdAt)} locale="en" />
       </div>
     </div>
     <div>{@html renderPostAsHtml(comment.post)}</div>
@@ -58,7 +58,7 @@
             d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z"
           />
         </svg>
-		<span class="sr-only">Replies</span>
+        <span class="sr-only">Replies</span>
         {numberToHumanReadable(comment.post.replyCount)}
       </a>
 
@@ -82,7 +82,7 @@
             d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
           />
         </svg>
-		<span class="sr-only">Likes</span>
+        <span class="sr-only">Likes</span>
         {numberToHumanReadable(comment.post.likeCount)}
       </a>
     </div>
@@ -99,7 +99,7 @@
   </div>
 
   {#if comment.replies?.length > 0 && depth <= 4}
-    {#each comment.replies.toSorted((a: any, b: any) => new Date(a.post.indexedAt).getTime() - new Date(b.post.indexedAt).getTime()) as reply}
+    {#each comment.replies.toSorted((a: any, b: any) => new Date(a.post.record.createdAt).getTime() - new Date(b.post.record.createdAt).getTime()) as reply}
       <Comment comment={reply} depth={depth + 1} />
     {/each}
   {/if}

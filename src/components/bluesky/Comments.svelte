@@ -3,15 +3,13 @@
   import { getUserPosts, getComments, getCommentCount } from "./utils";
   import Comment from "./Comment.svelte";
 
-  let { uri, user, comments } = $props();
+  let { uri, user, comments, url } = $props();
 
   let postUri = $state(uri);
 
   onMount(async () => {
     if (!uri && user) {
       let posts = await getUserPosts(user);
-
-      const url = window.location.href;
 
       // @ts-expect-error: weird type fuckery
       const post = posts.find((post) => post.post.embed?.external?.uri === url);

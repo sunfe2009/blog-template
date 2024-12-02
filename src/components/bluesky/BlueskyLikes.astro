@@ -49,6 +49,7 @@ let comments = post ? await getComments(post.data.uri) : [];
       likesData={likesData}
       likesCount={Math.max(post?.data.likeCount ?? 0, likesData.length)}
       user={BLUESKY_IDENTIFIER}
+      url={url}
       client:idle
     />
   ) : null
@@ -60,6 +61,7 @@ let comments = post ? await getComments(post.data.uri) : [];
       uri={post?.data.uri}
       comments={comments}
       user={BLUESKY_IDENTIFIER}
+      url={url}
       client:idle
     />
   ) : null

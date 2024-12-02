@@ -3,7 +3,7 @@
   import { atUriToPostUri, getUserPosts, getLikes, getPost } from "./utils";
   import { cn } from "src/utils";
 
-  const { uri, likesCount, likesData, user } = $props();
+  const { uri, likesCount, likesData, user, url } = $props();
 
   let postUri = $state(uri);
   let postLikesCount = $state(likesCount);
@@ -12,8 +12,6 @@
   onMount(async () => {
     if (!uri && user) {
       let posts = await getUserPosts(user);
-
-      const url = window.location.href;
 
       // @ts-expect-error: weird type fuckery
       const post = posts.find((post) => post.post.embed?.external?.uri === url);
