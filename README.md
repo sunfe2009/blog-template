@@ -20,7 +20,7 @@ Features:
 - ✅ Tags for posts
 - ✅ Super easy to deploy as a static site
 - ✅ Includes some prebuilt components for you to use
-- ✅ Easy to edit using [pagecms](https://pagescms.org) or by editing the markdown directly
+- ✅ Easy to edit by editing the markdown directly
 
 ## tutorials
 
@@ -38,23 +38,9 @@ the demo blog doubles as a tutorial on how to use this template:
 
 2. In your repository settings, set up github pages to deploy using github actions (*SETTINGS* -> *PAGES* -> *SOURCE*: **Github Actions**)
 
-3. Your blog should be live in about 1 minute at `https://<your-github-username>.github.io/<your-repo-name>`
+3. Set up your blog info in `src/config.json` (most importantly change `SITE` to your deployment url, e.g. for github pages `https://<your-github-username>.github.io/` and `BASE` to your base path, e.g. for github pages `/<your-repo-name>`)
 
-For editing the blog you can either edit the code directly or use the preconfigured [pagescms](https://next.pagescms.org).
-
-### Editing with pagescms
-
-4. Go to [pagescms](https://next.pagescms.org) and log in with your github account and authorize the app.
-
-5. Add your repository to pagescms and open it.
-
-6. Now you can edit your website configuration, about page, description and blog posts directly in the browser.
-
-7. Your changes will be automatically pushed to your repository and deployed to github pages in about 1 minute everytime you hit save.
-
-### Editing the code
-
-4. Set up your blog info in `src/config.json` (leaving SITE, BASE, and MANUAL_SITE_BASE, as they are).
+4. Your blog should be live in about 1 minute at `https://<your-github-username>.github.io/<your-repo-name>`
 
 5. Add your blog posts in `src/content/blog/`
 

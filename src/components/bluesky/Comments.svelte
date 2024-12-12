@@ -21,8 +21,6 @@
     } else if (uri) {
       comments = await getComments(uri);
     }
-
-    console.log(comments);
   });
 </script>
 

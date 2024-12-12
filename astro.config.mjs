@@ -10,6 +10,13 @@ import pagefind from "vite-plugin-pagefind";
 
 import { BASE, SITE } from "./src/config.json";
 
+import customEmbeds from 'astro-custom-embeds';
+
+import { transformerMetaHighlight, transformerNotationHighlight } from '@shikijs/transformers'
+
+import LinkCardEmbed from './src/embeds/link-card/embed'
+import YoutubeEmbed from './src/embeds/youtube/embed'
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -33,7 +40,13 @@ export default defineConfig({
     },
   },
 
-  integrations: [mdx(), sitemap(), tailwind(), svelte()],
+  integrations: [customEmbeds({
+    embeds: [
+      YoutubeEmbed,
+      LinkCardEmbed,
+      
+    ]
+  }), mdx(), sitemap(), tailwind(), svelte()],
 
   markdown: {
     shikiConfig: {
@@ -45,6 +58,9 @@ export default defineConfig({
         light: "github-light",
         dark: "github-dark",
       },
+      defaultColor: false,
+      transformers: [transformerMetaHighlight(), transformerNotationHighlight()],
+      wrap: true
     },
   },
 
