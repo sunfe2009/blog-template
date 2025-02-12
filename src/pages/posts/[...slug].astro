@@ -37,6 +37,10 @@ if (!isExternalUrl && post.data.heroImage) {
       `"${post.data.heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
     );
 }
+let heroImageData: { default: ImageMetadata } | undefined;
+if (!isExternalUrl && replacedHero) {
+  heroImageData = await images[replacedHero]();
+}
 ---
 
 <BaseLayout {...post.data} image={post.slug + ".png"}>
@@ -51,9 +55,9 @@ if (!isExternalUrl && post.data.heroImage) {
             alt=""
             class="w-full h-80 object-cover rounded-xl shadow border border-base-400 dark:border-base-700"
           />
-        ) : replacedHero ? (
+        ) : replacedHero && heroImageData ? (
           <Image
-            src={(await images[replacedHero]()).default}
+            src={heroImageData.default}
             alt=""
             class="w-full h-80 object-cover rounded-xl shadow border border-base-400 dark:border-base-700"
           />
