@@ -22,14 +22,21 @@ type Props = CollectionEntry<"blog">;
 const post = Astro.props;
 const { Content } = await post.render();
 
+// Check if the heroImage is an external URL
+const isExternalUrl = post.data.heroImage?.startsWith('http://') || post.data.heroImage?.startsWith('https://');
+
+// Only process local images through the glob pattern
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/*.{jpeg,jpg,png,gif}"
 );
-const replacedHero = post.data.heroImage?.replace("../..", "/src");
-if (replacedHero && !images[replacedHero])
-  throw new Error(
-    `"${post.data.heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
-  );
+let replacedHero: string | undefined;
+if (!isExternalUrl && post.data.heroImage) {
+  replacedHero = post.data.heroImage.replace("../..", "/src");
+  if (!images[replacedHero])
+    throw new Error(
+      `"${post.data.heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+    );
+}
 ---
 
 <BaseLayout {...post.data} image={post.slug + ".png"}>
@@ -37,12 +44,20 @@ if (replacedHero && !images[replacedHero])
 
   <main class="max-w-2xl lg:max-w-3xl mx-auto my-0 h-full p-4">
     {
-      replacedHero && post.data.hideHero !== true ? (
-        <Image
-          src={images[replacedHero]()}
-          alt=""
-          class="w-full h-80 object-cover rounded-xl shadow border border-base-400 dark:border-base-700"
-        />
+      post.data.heroImage && post.data.hideHero !== true ? (
+        isExternalUrl ? (
+          <img
+            src={post.data.heroImage}
+            alt=""
+            class="w-full h-80 object-cover rounded-xl shadow border border-base-400 dark:border-base-700"
+          />
+        ) : replacedHero ? (
+          <Image
+            src={(await images[replacedHero]()).default}
+            alt=""
+            class="w-full h-80 object-cover rounded-xl shadow border border-base-400 dark:border-base-700"
+          />
+        ) : null
       ) : null
     }
     <BlogPost>

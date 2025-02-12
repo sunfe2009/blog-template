@@ -26,4 +26,6 @@ pnpm-debug.log*
 public/pagefind/
 
 
-.obsidian
+.obsidian/
+/.obsidian/
+src/content/.obsidian/
