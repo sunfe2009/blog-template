@@ -1,11 +1,11 @@
 {
-  "SITE": "https://flo-bit.dev",
-  "BASE": "/blog-template",
-  "SITE_TITLE": "Blog template",
-  "SITE_NAME": "blog template",
-  "SITE_DESCRIPTION": "Welcome to my website!",
-  "SITE_FAVICON": "🙃",
-  "NAME": "flo-bit",
+  "SITE": "https://thestep.one",
+  "BASE": "",
+  "SITE_TITLE": "The Step One - 小步向前",
+  "SITE_NAME": "The Step One",
+  "SITE_DESCRIPTION": "小步向前",
+  "SITE_FAVICON": "🫳🏻",
+  "NAME": "The Step One",
   "POSTS_PER_PAGE": 3,
   "MANUAL_DARK_MODE": true,
   "SEARCH_ENABLED": true,
@@ -13,14 +13,14 @@
   "ACCENT_COLOR": "rose",
   "SOCIAL_LINKS": {
     "FACEBOOK_URL": "",
-    "TWITTER_URL": "",
-    "GITHUB_URL": "https://github.com/flo-bit",
+    "TWITTER_URL": "https://x.com/molightme",
+    "GITHUB_URL": "",
     "INSTAGRAM_URL": "",
     "LINKEDIN_URL": "",
     "YOUTUBE_URL": "",
     "SUBSTACK_URL": "",
-    "EMAIL": "flo.bit.dev@gmail.com",
-    "BLUESKY_URL": "https://bsky.app/profile/flo-bit.dev"
+    "EMAIL": "hi@thestep.one",
+    "BLUESKY_URL": "https://molightme.bsky.social"
   },
-  "BLUESKY_IDENTIFIER": "flo-bit.dev"
+  "BLUESKY_IDENTIFIER": "molightme.bsky.social"
 }
