@@ -64,6 +64,10 @@ export default defineConfig({
     },
   },
 
+  image: {
+    domains: ['raw.githubusercontent.com', 'images.unsplash.com'], // 在这里添加你允许优化的外部域名，例如 ['images.example.com']
+  },
+
   prefetch: {
     prefetchAll: true,
   },
