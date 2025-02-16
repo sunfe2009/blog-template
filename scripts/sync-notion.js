@@ -12,6 +12,20 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
 
 async function syncNotionToBlog() {
   try {
+    console.log('开始同步 Notion 内容...');
+    console.log('使用数据库 ID:', process.env.NOTION_DATABASE_ID);
+    
+    // 首先测试数据库连接
+    try {
+      await notion.databases.retrieve({
+        database_id: process.env.NOTION_DATABASE_ID
+      });
+      console.log('成功连接到 Notion 数据库');
+    } catch (error) {
+      console.error('数据库连接失败:', error.message);
+      throw error;
+    }
+
     // 获取数据库中的所有页面
     const response = await notion.databases.query({
       database_id: process.env.NOTION_DATABASE_ID,
@@ -51,7 +65,12 @@ async function syncNotionToBlog() {
 
     console.log('Successfully synced Notion content to blog');
   } catch (error) {
-    console.error('Error syncing Notion content:', error);
+    console.error('同步过程中出现错误:', error);
+    console.error('错误详情:', {
+      code: error.code,
+      message: error.message,
+      status: error.status
+    });
     process.exit(1);
   }
 }
