@@ -16,12 +16,21 @@ slug: blog-with-obsidian-astro
 这可太方便了，相当于 Astro 有了 CMS 了。
 
 记录一下大致流程，
+
  去 Astro、Hexo、Hugo 的主题市场任选一款喜欢的主题。
+ 
  ↓
+ 
  在本地初始化对应的静态生成器，然后发布到 Github。
+ 
  ↓
+ 
  在 Cloudflare/Vercel 一键托管。
+ 
  ↓
+ 
  在 Obsidian 安装 Static Site MD Exporter 这款插件并设置 Github 秘钥。
+ 
 ↓
+
 Obsidian 侧边栏将出现发布按钮，点击就可以发布啦。
